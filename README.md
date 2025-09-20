@@ -17,9 +17,11 @@ Given a Lambda function that is triggered upon the creation of files in an S3 bu
  3. If the function is needed to upload a file into an S3 bucket, describe (i.e no need for the actual policies)
     
     a.  What is the needed update on the execution role?
+
         ANSWER: To allow a Lambda function to upload files to an S3 bucket, you must update its execution role to include s3:PutObject and related permissions for the target bucket.
             This gives the function the required access to perform the upload operation successfully.
  
      b. What is the new resource-based policy that needs to be added (if any)?
+
         ANSWER: If uploads are from the same AWS account, no bucket policy is needed — just IAM permissions for the uploader.
                 If uploads are from another account, you need a bucket policy with s3:PutObject.
